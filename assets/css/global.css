@@ -1,0 +1,92 @@
+:root {
+    --bg-dark: #1a1a2e;
+    --bg-medium: #2e2c40;
+    --text-primary: #e0e0e0;
+    --text-secondary: #8b92b2;
+    --accent-blue: #00bcd4;
+    --accent-green: #4caf50;
+    --accent-red: #f44336;
+    --border-color: #4a4a6b;
+    --font-mono: 'Space Mono', monospace;
+    --font-sans: 'Roboto', sans-serif;
+    --spacing-unit: 1rem;
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: var(--font-sans);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--spacing-unit);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-unit);
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.4);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-blue);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
+}
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 1.5);
+    background-color: var(--bg-medium);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 4rem);
+}
+
+.content h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+    font-family: var(--font-mono);
+    letter-spacing: 0.15rem;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: var(--spacing-unit);
+    }
+    .content {
+        padding: var(--spacing-unit);
+        margin-top: var(--spacing-unit);
+        min-height: calc(100vh - 2rem);
+    }
+    .content h1 {
+        font-size: 2.5rem;
+        margin-bottom: calc(var(--spacing-unit) * 1.5);
+    }
+}
