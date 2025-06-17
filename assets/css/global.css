@@ -1,79 +1,104 @@
 :root {
-    --bg-dark: #1a1a2e;
-    --bg-medium: #2e2c40;
-    --text-primary: #e0e0e0;
-    --text-secondary: #8b92b2;
-    --accent-blue: #00bcd4;
-    --accent-green: #4caf50;
-    --accent-red: #f44336;
-    --border-color: #4a4a6b;
-    --font-mono: 'Space Mono', monospace;
-    --font-sans: 'Roboto', sans-serif;
+    --color-electric: #FFD700;
+    --color-fire: #FF7043;
+    --color-water: #64B5F6;
+    --color-grass: #8BC34A;
+    --color-normal: #BDBDBD;
+    --color-background-dark: #212121;
+    --color-background-medium: #424242;
+    --color-text-light: #ECEFF1;
+    --color-text-dark: #212121;
+    --color-border: #616161;
+
+    --font-pokemon-title: 'Press Start 2P', cursive;
+    --font-pokemon-body: 'VT323', monospace;
+
     --spacing-unit: 1rem;
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
+    --border-radius-small: 0.25rem;
+    --border-radius-medium: 0.5rem;
+    --box-shadow-light: 0 0 10px rgba(255, 255, 255, 0.1);
+    --box-shadow-medium: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 * {
-    font-family: var(--font-sans);
+    font-family: var(--font-pokemon-body);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
+    background-color: var(--color-text-light:);
+    color: var(--color-text-light);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     padding: var(--spacing-unit);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: var(--spacing-unit);
     font-weight: 700;
-    color: var(--accent-blue);
-    text-shadow: 0 0 5px rgba(0, 188, 212, 0.4);
+    color: var(--color-electric);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-pokemon-title);
 }
 
 a {
     text-decoration: none;
-    color: var(--accent-blue);
+    color: var(--color-water);
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--accent-green);
+    color: var(--color-grass);
     text-decoration: underline;
 }
 
 .content {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-top: calc(var(--spacing-unit) * 2);
     padding: calc(var(--spacing-unit) * 1.5);
-    background-color: var(--bg-medium);
-    border-radius: var(--border-radius-md);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+    background-color: var(black);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow-medium);
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 4rem);
+    position: relative;
+    overflow: hidden;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,215,0,0.1), rgba(139,195,74,0.1));
+    pointer-events: none;
+    z-index: 0;
 }
 
 .content h1 {
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: calc(var(--spacing-unit) * 2.5);
-    font-family: var(--font-mono);
-    letter-spacing: 0.15rem;
+    font-family: var(--font-pokemon-title);
+    letter-spacing: 0.2rem;
+    color: var(--color-electric);
+    text-shadow: 4px 4px 0px var(--color-fire), 6px 6px 0px var(--color-water);
+    position: relative;
+    z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -86,7 +111,8 @@ a:hover {
         min-height: calc(100vh - 2rem);
     }
     .content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-bottom: calc(var(--spacing-unit) * 1.5);
+        text-shadow: 3px 3px 0px var(--color-fire), 5px 5px 0px var(--color-water);
     }
 }
